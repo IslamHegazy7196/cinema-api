@@ -4,8 +4,6 @@ const customError = require("../errors");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const {
-  createJWT,
-  isTokenValid,
   attachCookiesToResponse,
 } = require("../utils");
 
