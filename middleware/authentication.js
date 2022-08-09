@@ -15,12 +15,12 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 const authorizePermissions = (...rest) => {
- return (req, res, next)=>{
+  return (req, res, next) => {
     if (!rest.includes(req.user.role)) {
-        throw new customError.UnauthorizedError("not allowed to access");
-      }
-      next();
- }
+      throw new customError.UnauthorizedError("not allowed to access");
+    }
+    next();
+  };
 };
 
 module.exports = { authenticateUser, authorizePermissions };

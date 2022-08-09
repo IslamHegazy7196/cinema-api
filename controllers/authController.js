@@ -1,11 +1,9 @@
 const { StatusCodes } = require("http-status-codes");
-const User = require('../models/User')
+const User = require("../models/User");
 const customError = require("../errors");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const {
-  attachCookiesToResponse,
-} = require("../utils");
+const { attachCookiesToResponse } = require("../utils");
 
 const register = async (req, res) => {
   const user = await User.create(req.body);
@@ -35,11 +33,11 @@ const login = async (req, res) => {
   res.status(StatusCodes.OK).send({ user: tokenUser });
 };
 const logout = async (req, res) => {
-  res.cookie('token','logout',{
-    httpOnly:true,
-    expires:new Date(Date.now())
-  })
-  res.status(StatusCodes.OK).json({msg:'user logged out!'})
+  res.cookie("token", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(StatusCodes.OK).json({ msg: "user logged out!" });
 };
 
 module.exports = { login, logout, register };
