@@ -1,15 +1,13 @@
 require("dotenv").config();
 require("express-async-errors");
-// express
 const express = require("express");
-const app = express();
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
-// connect BD
 const connectDB = require("./DB/connect");
 
-app.use(express.json());
+const app = express();
+app.use(express.json())
 app.use(morgan("tiny"));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static("./public"));
@@ -21,9 +19,10 @@ const userRouter = require("./routes/userRoutes");
 const moviesRouter = require("./routes/moviesRoutes");
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
+
 // routes
 app.get("/", (req, res) => {
-  res.send("e-commerce-api");
+  res.send("cinema-api");
 });
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);

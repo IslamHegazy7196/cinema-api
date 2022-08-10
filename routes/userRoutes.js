@@ -10,12 +10,16 @@ const {
   getSingleUser,
   showCurrentUser,
   updateUserRole,
+  getAllModerators,
 } = require("../controllers/userController");
 
 router
+  .route("/moderators")
+  .get(authenticateUser, authorizePermissions("admin"), getAllModerators);
+router
   .route("/")
   .get(authenticateUser, authorizePermissions("admin"), getAllUsers);
-router.route("/showMe").get(authenticateUser, showCurrentUser);
+router.route("/me").get(authenticateUser, showCurrentUser);
 router
   .route("/role")
   .patch(authenticateUser, authorizePermissions("admin"), updateUserRole);

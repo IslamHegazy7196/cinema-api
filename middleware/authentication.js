@@ -14,6 +14,7 @@ const authenticateUser = async (req, res, next) => {
     throw new customError.UnauthenticatedError("authentication invalid");
   }
 };
+
 const authorizePermissions = (...rest) => {
   return (req, res, next) => {
     if (!rest.includes(req.user.role)) {

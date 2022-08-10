@@ -7,16 +7,16 @@ const { attachCookiesToResponse } = require("../utils");
 
 const register = async (req, res) => {
   const user = await User.create(req.body);
-
   const tokenUser = { name: user.name, userId: user._id, role: user.role };
   attachCookiesToResponse({ res, user: tokenUser });
   res.status(StatusCodes.CREATED).send({ user: tokenUser });
 };
+
 const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     throw new customError.BadRequestError(
-      "please provide username and password"
+      "please provide email and password"
     );
   }
   const user = await User.findOne({ email });
@@ -30,8 +30,11 @@ const login = async (req, res) => {
 
   const tokenUser = { name: user.name, userId: user._id, role: user.role };
   attachCookiesToResponse({ res, user: tokenUser });
+  
   res.status(StatusCodes.OK).send({ user: tokenUser });
 };
+
+
 const logout = async (req, res) => {
   res.cookie("token", "logout", {
     httpOnly: true,

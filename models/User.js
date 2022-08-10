@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required: [true, "Please provide name"],
+    required: [true, "Please provide email"],
     validator: {
       validator: validator.isEmail,
       message: "please provide valid email",
@@ -20,7 +20,7 @@ const UserSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please provide name"],
+    required: [true, "Please provide valid password"],
     minlength: 6,
   },
   role: {

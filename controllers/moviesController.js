@@ -87,11 +87,10 @@ const deleteMovie = async (req, res) => {
   }
 
   await movie.remove();
-  res.status(StatusCodes.OK).json({ msg: "Success! Movies removed." });
+  res.status(StatusCodes.OK).json({ msg: "Success! Movie removed." });
 };
 
 const uploadImage = async (req, res) => {
-  console.log(req.files);
   if (!req.files) {
     throw new customError.BadRequestError("no file uploaded");
   }
@@ -101,7 +100,7 @@ const uploadImage = async (req, res) => {
   }
   const maxSize = 1024 * 1024;
   if (movieImage.size > maxSize) {
-    throw new customError.BadRequestError("please upload smaller image");
+    throw new customError.BadRequestError("please upload smaller than 1 MB");
   }
   const imagePath = path.join(
     __dirname,
