@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "c7998613-8e7f-4863-a7b3-59e0825e4cd3",
+		"name": "cinema api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19774446"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mhspno.5555\",\r\n            \"email\": \"mhspno.5555@gmail.com\",\r\n    \"password\": \"mhspno.5555\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/login",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/auth/logout",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"mhspn.444444\",\"email\":\"mhspn.444444@gmail.com\",\"password\":\"mhspn.444444\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/register",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "get single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/62f2b6be5522d8e87f9e5984",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"users",
+								"62f2b6be5522d8e87f9e5984"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all moderators",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users//moderators",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"users",
+								"",
+								"moderators"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show current user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/me",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user role",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mhspn.5555\",\r\n    \"email\": \"mhspn.5555@gmail.com\",\r\n    \"id\": \"62efb294ddbd4c8d3cbf26a5\",\r\n    \"newRole\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/role",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"users",
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movies",
+			"item": [
+				{
+					"name": "get all movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5000/movies/?page=2",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "fight club",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "1993-10-14",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "1995-10-14",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/movies/62f2d99f0919c40bfd905a76",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								"62f2d99f0919c40bfd905a76"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"taken\",\r\n    \"releaseDate\": \"2008-3-25\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/movies/",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"taken \",\r\n    \"date\": \"23-11-2008\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/movies/62f2f5f3a78036c6b92cd0ee",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								"62f2f5f3a78036c6b92cd0ee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/movies/62f2f5f3a78036c6b92cd0ee",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								"62f2f5f3a78036c6b92cd0ee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/iii/Desktop/job tasks/images/batman vs superman.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/movies/uploadImage",
+							"host": [
+								"http://localhost:5000"
+							],
+							"path": [
+								"movies",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
