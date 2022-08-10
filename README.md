@@ -31,7 +31,8 @@ If the JWT is missing or invalid, these APIs should deny the request.
 All API End points and documentation can be found at: Postman documntation.
 
 ### The following is just a simple list of the api end points:
-### 1- authentication routes
+
+### 1- Authentication routes
 
 
 > get /auth/logout
@@ -40,7 +41,7 @@ All API End points and documentation can be found at: Postman documntation.
 
 > post /auth/register
 
-### 2-user routes
+### 2- User routes
 
 >   get /users/
  
@@ -50,7 +51,7 @@ All API End points and documentation can be found at: Postman documntation.
   
 >   get /users/:id
 
-### 3-movies routes
+### 3- Movies routes
 
 >  get /movies/
  
